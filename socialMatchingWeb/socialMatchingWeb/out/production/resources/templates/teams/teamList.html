@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"> <head th:replace="fragments/header :: header" /> <body>
+<div class="container">
+    <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+    <div>
+        <table class="table table-striped">
+            <thead> <tr>
+                <th>#</th> <th>팀명</th> <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="team : ${teams}">
+                <td th:text="${team.name}"></td>
+
+                <td>
+                    <a href="#" th:href="@{/teams/{id}/edit (id=${team.id})}"
+                       class="btn btn-primary" role="button">팀명 수정</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
